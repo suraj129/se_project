@@ -14,7 +14,7 @@ if (mysqli_num_rows($result)>0) {
 	{
         if($num == $row["id"] and $password == $row["password"])
 		{
-		header('Location: users/home.html');
+		header('Location: users/home.php');
 	
 		}
 		else
