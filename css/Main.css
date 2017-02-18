@@ -1,0 +1,35 @@
+
+.header{
+font-size:150%;
+margin:0;
+padding:0;
+color:#FFFFFF;
+}
+.login{
+font-size:100%;
+
+color:#FFFFFF;
+}
+.img{
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #000000;
+    height: auto;
+    width: auto;
+    float: left;
+    text-align: center;
+}	
+.desc {
+  text-align: center;
+  font-weight: normal;
+  width: 120px;
+  margin: 5px;
+}
+
+.setting{
+color:#FFFFFF;
+font-size:100%;
+margin:0;
+padding:0;
+
+}

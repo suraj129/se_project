@@ -1,0 +1,23 @@
+body {/*for moto e 2*/
+  color: #fff;
+  font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+}
+.box-set,
+.box {
+  border-radius: 10px;
+}
+.box-set {
+  background: #eaeaed;
+  overflow: auto;
+  margin-bottom:20px;
+  float:center;
+}
+.box {
+  background: #1E90FF;
+  float: left;
+  margin: 20px;
+  padding: 60px 0;
+  text-align: center;
+  width: 140px;
+  height: 260px;
+}

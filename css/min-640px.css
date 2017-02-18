@@ -1,0 +1,21 @@
+body {/* for web site*/
+  color: #fff;
+  font: 600 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
+}
+.box-set,
+.box {
+  border-radius: 10px;
+}
+.box-set {
+  background: #eaeaed;
+  overflow: auto;
+}
+.box {
+  background: /* #87CEFA*/#1E90FF;
+  float: left;
+  margin: 4%;
+  padding: 5%;
+  text-align: center;
+  width: 340px;
+  height:295px;
+}
