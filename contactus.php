@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Register User</title>
+<title>Contact Us</title>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,6 @@ a:hover {
 
 html,
 body {
-  height: 100%;
   background-color: #333;
  background-attachment: fixed;
 }
@@ -36,18 +35,6 @@ body {
    background-attachment: fixed;
 }
 
-.site-wrapper {
-  display: table;
-  width: 100%;
-  height: 100%; /* For at least Firefox */
-  min-height: 100%;
-  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-}
-.site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
-}
 .cover-container {
   margin-right: auto;
   margin-left: auto;
@@ -219,72 +206,18 @@ input::-webkit-input-placeholder {
                 <ul class="nav masthead-nav">
                   <li><a href="#">Home</a></li>
                   <li><a href="login_user.html">Login</a></li>
-				  <li  class="active"><a href="#">Register</a></li>
-                  <li><a href="contactus.php">Contact</a></li>
+				  <li><a href="#">Register</a></li>
+                  <li class="active"><a href="contactus.php">Contact</a></li>
                 </ul>
               </nav>
             </div>
-          </div>
-	
+          </div><br><br><br><br><br>
+	<blockquote class="w3-panel w3-leftbar w3-light-grey">
+  <p class="w3-large">
+  <i>"Founder"</i></p>
+  <p><a href="https://plus.google.com/+SurajMisal">Suraj Misal</a></p>
+</blockquote>
 
- <div class="container">
-			<div class="row main">
-				<div class="panel-heading">
-	          
-	            </div> 
-				<div class="main-login main-center">
-					<form class="form-horizontal" method="post" action="register.php">
-						
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="number" class="cols-sm-2 control-label">Your Number</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="number" class="form-control" name="num" id="num"  placeholder="Enter your Mobile Number"/>
-								</div>
-							</div>
-						</div>
-
-					
-
-						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group ">
-							<button type="Submit" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-						</div>
-					
-					</form>
-				</div>
-			</div>
-		</div>
 	  </div></div></div>
   </div></body>
 </html>
