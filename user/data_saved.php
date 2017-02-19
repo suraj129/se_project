@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>User :Home</title>
+<title>User :Saved</title>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -184,10 +184,9 @@ input::-webkit-input-placeholder {
               <h3 class="masthead-brand">Supply Chain Management</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li  class="active"><a href="home.php">Home</a></li>
+                  <li><a href="home.php">Home</a></li>
                   <li><a href="user_data_entry.html">Data Entry</a></li>
-				  <li><a href="data_saved.php">Inbox</a></li>
-             
+				  <li  class="active"><a href="data_saved.php">Inbox</a></li>
 				  <li><a href="../login_user.html">Log Out</a></li>
                 </ul>
               </nav>
@@ -198,7 +197,7 @@ input::-webkit-input-placeholder {
 <?php
 include('../dbcon.php');
 	
-	$select_post_per_users = mysqli_query($conn,"SELECT DISTINCT name,level FROM product p WHERE   p.level='0'");
+	$select_post_per_users = mysqli_query($conn,"SELECT DISTINCT name,level FROM product p WHERE   p.level='1'");
 	
 	if($select_post_per_users){
 		
@@ -207,7 +206,7 @@ include('../dbcon.php');
 			$level = $array_get_users['level'];
 					
 			echo "<h4>Product Name :     $product_name</h4>";
-			echo "<form action='product_details.php' method='get'>
+			echo "<form action='product1_details.php' method='get'>
 					<input type=hidden value='$product_name' name='name' /> 
 					<button type='submit' value='$level'  name='view' class='btn btn-primary'>View</button>
 					</tr>

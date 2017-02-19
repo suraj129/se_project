@@ -129,7 +129,7 @@ hr{
 	margin-bottom: 15px;
 }
 
-label{
+label,input{
 	color: black ;
 	margin-bottom: 15px;
 }
@@ -184,8 +184,9 @@ input::-webkit-input-placeholder {
               <h3 class="masthead-brand">Supply Chain Management</h3>
               <nav>
                 <ul class="nav masthead-nav">
-               
-             
+                  <li   class="active"><a href="home.php">Home</a></li>
+                  <li><a href="user_data_entry.html">Data Entry</a></li>
+				  <li><a href="data_saved.php">Inbox</a></li>
 				  <li><a href="../login_user.html">Log Out</a></li>
                 </ul>
               </nav>
@@ -196,9 +197,9 @@ input::-webkit-input-placeholder {
 <?php
 include('../dbcon.php');
 	error_reporting(0);
-$name = $_GET['view'];
-
-	$select_post_per_users = mysqli_query($conn,"SELECT `date`, `name`, `amount`, `desc`, `imag` FROM `product` WHERE  name='$name'");
+$level = $_GET['view'];
+$name = $_GET['name'];
+	$select_post_per_users = mysqli_query($conn,"SELECT `date`, `name`, `amount`,`level`,`desc`, `imag` FROM `product` WHERE  level='$level' and name='$name' ");
 	
 	if($select_post_per_users){
 		
@@ -206,6 +207,7 @@ $name = $_GET['view'];
 			$date = date("d-m-Y", strtotime($array_get_users['date']));
 			$product_name = $array_get_users['name'];
 			$amount = $array_get_users['amount'];
+			$level = $array_get_users['level'];
 			$desc = $array_get_users['desc'];
 			$imag = $array_get_users['imag'];
 				
@@ -215,7 +217,14 @@ $name = $_GET['view'];
 			echo "<h4>Product Desciption :     $desc</h4>";
 			echo "<h4>Photo :     $imag</h4>";
 			
-			
+				echo "<form action='data_add.php' method='get'>
+				<h4>Enter Your Sale Amount</h4>
+				<input type='number' value='' name='amount' />
+				<input type='hidden' value='$product_name' name='product_name'/>
+					<button type='submit' value='$level'  name='add' class='btn btn-primary'>add</button>
+					</tr>
+					</table>
+				</form>";
 		}
 	}
 	else{

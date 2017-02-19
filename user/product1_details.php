@@ -129,7 +129,7 @@ hr{
 	margin-bottom: 15px;
 }
 
-label{
+label,input{
 	color: black ;
 	margin-bottom: 15px;
 }
@@ -184,10 +184,9 @@ input::-webkit-input-placeholder {
               <h3 class="masthead-brand">Supply Chain Management</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li  class="active"><a href="home.php">Home</a></li>
+                  <li><a href="home.php">Home</a></li>
                   <li><a href="user_data_entry.html">Data Entry</a></li>
-				  <li><a href="data_saved.php">Inbox</a></li>
-             
+				  <li  class="active"><a href="data_saved.php">Inbox</a></li>
 				  <li><a href="../login_user.html">Log Out</a></li>
                 </ul>
               </nav>
@@ -197,28 +196,34 @@ input::-webkit-input-placeholder {
 			 <h4>Product Details<h4><br><br>
 <?php
 include('../dbcon.php');
-	
-	$select_post_per_users = mysqli_query($conn,"SELECT DISTINCT name,level FROM product p WHERE   p.level='0'");
+	error_reporting(0);
+$level = $_GET['view'];
+$name = $_GET['name'];
+	$select_post_per_users = mysqli_query($conn,"SELECT `date`, `name`, `amount`,`level`,`desc`, `imag` ,`amount1` FROM `product` WHERE  level='$level' and name='$name' ");
 	
 	if($select_post_per_users){
 		
 		while($array_get_users = mysqli_fetch_array($select_post_per_users)){
+			$date = date("d-m-Y", strtotime($array_get_users['date']));
 			$product_name = $array_get_users['name'];
+			$amount = $array_get_users['amount'];
 			$level = $array_get_users['level'];
-					
-			echo "<h4>Product Name :     $product_name</h4>";
-			echo "<form action='product_details.php' method='get'>
-					<input type=hidden value='$product_name' name='name' /> 
-					<button type='submit' value='$level'  name='view' class='btn btn-primary'>View</button>
-					</tr>
-					</table>
-				</form>";
+			$desc = $array_get_users['desc'];
+			$imag = $array_get_users['imag'];
+			$amount1 = $array_get_users['amount1'];
+				
+			echo "<h4>Product Name       :     $product_name</h4>";
+			echo "<h4>Date Of Sale       :     $date</h4>";
+			echo "<h4>Product Amount     :     $amount</h4>";
+			echo "<h4>Your Amount  :     $amount1</h4>";
+			echo "<h4>Product Desciption :     $desc</h4>";
+			echo "<h4>Photo :     $imag</h4>";
 			
 		}
-	}else{
+	}
+	else{
 		echo "Data Retriving Error";
 	}
-
 ?>	
 	
  	  </div>

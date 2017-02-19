@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>User :Home</title>
+<title>User :add data</title>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,7 +114,7 @@ body {
  	margin-top: 70px;
 }
 
-h1.title,h4 { 
+h1.title,h4,input { 
 	font-size: 18px;
 	font-family: 'Passion One', cursive; 
 	font-weight: 400; 
@@ -129,7 +129,7 @@ hr{
 	margin-bottom: 15px;
 }
 
-label{
+label,input{
 	color: black ;
 	margin-bottom: 15px;
 }
@@ -184,11 +184,10 @@ input::-webkit-input-placeholder {
               <h3 class="masthead-brand">Supply Chain Management</h3>
               <nav>
                 <ul class="nav masthead-nav">
-                  <li  class="active"><a href="home.php">Home</a></li>
+                   <li  class="active"><a href="home.php">Home</a></li>
                   <li><a href="user_data_entry.html">Data Entry</a></li>
 				  <li><a href="data_saved.php">Inbox</a></li>
-             
-				  <li><a href="../login_user.html">Log Out</a></li>
+       			  <li><a href="../login_user.html">Log Out</a></li>
                 </ul>
               </nav>
 			  </div>
@@ -197,32 +196,21 @@ input::-webkit-input-placeholder {
 			 <h4>Product Details<h4><br><br>
 <?php
 include('../dbcon.php');
-	
-	$select_post_per_users = mysqli_query($conn,"SELECT DISTINCT name,level FROM product p WHERE   p.level='0'");
-	
-	if($select_post_per_users){
-		
-		while($array_get_users = mysqli_fetch_array($select_post_per_users)){
-			$product_name = $array_get_users['name'];
-			$level = $array_get_users['level'];
-					
-			echo "<h4>Product Name :     $product_name</h4>";
-			echo "<form action='product_details.php' method='get'>
-					<input type=hidden value='$product_name' name='name' /> 
-					<button type='submit' value='$level'  name='view' class='btn btn-primary'>View</button>
-					</tr>
-					</table>
-				</form>";
-			
-		}
-	}else{
-		echo "Data Retriving Error";
-	}
+error_reporting(0);
+$amount1 = $_GET['amount'];
+$name = $_GET['product_name'];
+$level = $_GET['add'];
 
-?>	
-	
- 	  </div>
-	  </div>
-	  </div>
- </body>
-</html>
+if($name)
+{	
+$update1 = mysqli_query($conn,"UPDATE product  SET level=1 ,amount1=$amount1 WHERE name='$name' and level=$level");
+}
+if($update1){
+
+	echo "Data SucessFully Saved";
+}
+else {
+	echo "No Data Found".mysql_error();
+}
+
+	?>
